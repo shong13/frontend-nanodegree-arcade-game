@@ -27,11 +27,17 @@ Enemy.prototype.render = function() {
 // a handleInput() method.
 class Player {
 	constructor() {
-		this.x = 0;
-		this.y = 0;
+		this.x = 202;
+		this.y = 404;
 		this.sprite = 'images/char-boy.png';
 	}
+	
+	render() {
+		ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+	}
 }
+
+const player = new Player();
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
