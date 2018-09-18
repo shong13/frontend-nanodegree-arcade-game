@@ -76,7 +76,10 @@ class Player {
 	
 	update() {
 		//if the player gets to the water area reset the char to start position
-		
+		if(this.y === -30){
+			this.x = this.side * 2;
+			this.y = this.upDown * 5 - 30;
+		}
 	}
 }
 
