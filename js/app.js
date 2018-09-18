@@ -3,7 +3,7 @@ var Enemy = function() {
 	
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
-
+	
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
@@ -28,14 +28,13 @@ Enemy.prototype.render = function() {
 class Player {
 	constructor() {
 		this.x = 202;
-		this.y = 303;
+		this.y = 385;
+		this.side = 101; //tile pixel from the engine
+		this.upDown = 83; //tile pixel from the engine
 		this.sprite = 'images/char-pink-girl.png';
 	}
 	
-	update() {
-		
-	}
-	
+
 	render() {
 		ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 	}
@@ -43,34 +42,31 @@ class Player {
 	handleInput(inputKey) {
 		switch(inputKey) {
 			case 'right':
-				if(this.x < 404){
-					this.x += 101;
-					break;
+				if(this.x < this.side * 4){
+					this.x += this.side;
 				}
-				else
-					break;
+				break;
 			case 'left':
 				if(this.x > 0){
-					this.x -= 101;
-					break;
+					this.x -= this.side;
 				}
-				else
-					break;
+				break;
 			case 'down':
-				if(this.y < 385){
-					this.y += 82;
-					break;
+				if(this.y < ((this.upDown * 5) - 30)){
+					this.y += this.upDown;
 				}
-				else
-					break;
+				break;
 			case 'up':
-				if(this.y > -25){
-					this.y -= 82;
-					break;
-				}
-				else
-					break;
+				if(this.y > -30){
+					this.y -= this.upDown;
+				}			
+				break;
 		}
+	}
+	
+	update() {
+		//if the player gets to the water area reset the char to start position
+		
 	}
 }
 
