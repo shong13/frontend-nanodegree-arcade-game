@@ -28,12 +28,49 @@ Enemy.prototype.render = function() {
 class Player {
 	constructor() {
 		this.x = 202;
-		this.y = 404;
-		this.sprite = 'images/char-boy.png';
+		this.y = 303;
+		this.sprite = 'images/char-pink-girl.png';
+	}
+	
+	update() {
+		
 	}
 	
 	render() {
 		ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
+	}
+	
+	handleInput(inputKey) {
+		switch(inputKey) {
+			case 'right':
+				if(this.x < 404){
+					this.x += 101;
+					break;
+				}
+				else
+					break;
+			case 'left':
+				if(this.x > 0){
+					this.x -= 101;
+					break;
+				}
+				else
+					break;
+			case 'down':
+				if(this.y < 385){
+					this.y += 82;
+					break;
+				}
+				else
+					break;
+			case 'up':
+				if(this.y > -25){
+					this.y -= 82;
+					break;
+				}
+				else
+					break;
+		}
 	}
 }
 
