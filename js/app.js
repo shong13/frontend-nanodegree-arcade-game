@@ -4,8 +4,10 @@ var Enemy = function() {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 	this.x = 0;
-	this.y = -30;
+	this.y = Math.floor((Math.random() * 3) + 1) * 83 - 30;
 	this.side = 101;
+	this.upDown = 83;
+	this.resetPos = -this.side;
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
@@ -17,8 +19,15 @@ Enemy.prototype.update = function(dt) {
     // You should multiply any movement by the dt parameter
     // which will ensure the game runs at the same speed for
     // all computers.
+	
 	if(this.x < this.side * 5) {
 		this.x += 200 * dt;
+	}
+	
+	else {
+		const randomPos = Math.floor((Math.random() * 3) + 1);
+		this.y = (this.upDown * randomPos - 30);
+		this.x = this.resetPos;
 	}
 };
 
