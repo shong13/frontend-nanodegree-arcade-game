@@ -1,3 +1,6 @@
+function generateRandomSpd() {
+	return Math.floor((Math.random() * 250) + 100);
+}
 // Enemies our player must avoid
 var Enemy = function() {
 	
@@ -8,6 +11,7 @@ var Enemy = function() {
 	this.side = 101;
 	this.upDown = 83;
 	this.resetPos = -this.side;
+	this.randomSpd = generateRandomSpd();
     // The image/sprite for our enemies, this uses
     // a helper we've provided to easily load images
     this.sprite = 'images/enemy-bug.png';
@@ -21,13 +25,13 @@ Enemy.prototype.update = function(dt) {
     // all computers.
 	
 	if(this.x < this.side * 5) {
-		this.x += 200 * dt;
+		this.x += this.randomSpd * dt;
 	}
 	
 	else {
-		const randomPos = Math.floor((Math.random() * 3) + 1);
-		this.y = (this.upDown * randomPos - 30);
+		this.y = (this.upDown * Math.floor((Math.random() * 3) + 1) - 30);
 		this.x = this.resetPos;
+		this.randomSpd = generateRandomSpd();
 	}
 };
 
@@ -37,10 +41,11 @@ Enemy.prototype.render = function() {
 };
 
 const enemy1 = new Enemy();
-
+const enemy2 = new Enemy();
+const enemy3 = new Enemy();
 
 const allEnemies = [];
-allEnemies.push(enemy1);
+allEnemies.push(enemy1, enemy2, enemy3);
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
@@ -112,3 +117,4 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
