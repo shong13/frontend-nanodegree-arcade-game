@@ -12,6 +12,7 @@ For detailed instructions on how to get started, check out this [guide](https://
 
 ##Table of contents
 * [Instructions](#instructions)
+* [Bugs](#Bugs)
 
 ## Instructions
 
