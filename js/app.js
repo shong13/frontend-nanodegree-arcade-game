@@ -46,8 +46,8 @@ const enemy1 = new Enemy();
 const enemy2 = new Enemy();
 const enemy3 = new Enemy();
 
-const allEnemies = [];
-allEnemies.push(enemy1, enemy2, enemy3);
+const allEnemies = [enemy1, enemy2, enemy3];
+
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
@@ -93,10 +93,21 @@ class Player {
 	update() {
 		//if the player gets to the water area reset the char to start position
 		if(this.y === -30){
-			this.x = this.side * 2;
-			this.y = this.upDown * 5 - 30;
+			alert("You won!!");
+			this.reset();
 		}
 		
+		for(let enemy of allEnemies) {
+			if (this.y === enemy.y && (enemy.x + ((enemy.side)/2) > this.x && enemy.x < this.x + (this.side/2))) {
+				alert("game over");
+				this.reset();
+			}
+		}
+	}
+	
+	reset() {
+		this.x = this.side * 2;
+		this.y = this.upDown * 5 - 30;
 	}
 }
 
