@@ -1,3 +1,4 @@
+//used to generate random speed for the enemies
 function generateRandomSpd() {
 	return Math.floor((Math.random() * 250) + 100);
 }
@@ -7,7 +8,7 @@ var Enemy = function() {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
 	this.x = 0;
-	this.y = Math.floor((Math.random() * 3) + 1) * 83 - 30;
+	this.y = Math.floor((Math.random() * 3) + 1) * 83 - 30; //creates enemies on random rock tile
 	this.side = 101;
 	this.upDown = 83;
 	this.resetPos = -this.side;
@@ -28,6 +29,7 @@ Enemy.prototype.update = function(dt) {
 		this.x += this.randomSpd * dt;
 	}
 	
+	//once the enemies reach the end, loops them back to the beginning with random location and speed
 	else {
 		this.y = (this.upDown * Math.floor((Math.random() * 3) + 1) - 30);
 		this.x = this.resetPos;
@@ -94,6 +96,7 @@ class Player {
 			this.x = this.side * 2;
 			this.y = this.upDown * 5 - 30;
 		}
+		
 	}
 }
 
