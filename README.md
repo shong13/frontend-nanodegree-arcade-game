@@ -16,9 +16,7 @@ For detailed instructions on how to get started, check out this [guide](https://
 
 ## Instructions
 
-Open index.html to be taken to the game. The game will automatically start, and if the player collides with a bug
-before reaching the river, the game will end with a "game over" message.
-If the player successfully reaches the river, then the game will end with "you win" message.
+Open index.html to be taken to the game. The game will automatically start. Move the character using the arrow keys. Avoid the beetles and try to get to the river on the other side! If you collide with a beetle, you lose the game, but if you can avoid all the beetles and get to the river, you win!
 
 ## Bugs 
 
