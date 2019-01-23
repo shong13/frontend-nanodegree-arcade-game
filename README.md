@@ -13,6 +13,7 @@ For detailed instructions on how to get started, check out this [guide](https://
 ##Table of contents
 * [Instructions](#instructions)
 * [Bugs](#Bugs)
+* [Dependencies](#Dependencies)
 
 ## Instructions
 
@@ -21,3 +22,7 @@ Open index.html to be taken to the game. The game will automatically start. Move
 ## Bugs 
 
 There are no known bugs as of now. However, other features to make the game more interesting will be implemented in the future.
+
+## Dependencies
+
+Our program requires engine.js and resources.js provided by Udacity. These source files are included in the project.
